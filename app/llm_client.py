@@ -54,4 +54,4 @@ class LLMClientGoogle:
         except Exception as e:
             print(f"Ocorreu um erro detalhado ao chamar a API do Gemini: {type(e).__name__} - {e}")
             return "Desculpe, ocorreu um erro ao processar sua solicitação com o Gemini."
-        
+            
