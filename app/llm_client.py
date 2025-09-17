@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-
 class LLMClientOpenAi:
     def __init__(self):
         api_key = os.getenv("OPENAI_API_KEY")
@@ -28,6 +27,7 @@ class LLMClientOpenAi:
         except Exception as e:
             print(f"Ocorreu um erro ao chamar a API da OpenAi: {e}")
             return "Desculpe, ocorreu um erro ao processar sua solicitação."
+
 
 class LLMClientGoogle:
     def __init__(self):
@@ -54,4 +54,3 @@ class LLMClientGoogle:
         except Exception as e:
             print(f"Ocorreu um erro detalhado ao chamar a API do Gemini: {type(e).__name__} - {e}")
             return "Desculpe, ocorreu um erro ao processar sua solicitação com o Gemini."
-            

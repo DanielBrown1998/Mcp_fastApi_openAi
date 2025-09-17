@@ -13,7 +13,7 @@ mcp_service = MCPService()
 llm_client = LLMClientGoogle()
 
 @app.post("/generate", summary="Gera uma resposta de IA usando MCP")
-async def generate_response(request: QueryRequest):
+async def generate_response(request: QueryRequest): # type: ignore
     """
     Recebe uma query, monta o contexto usando MCP, e retorna a resposta do LLM.
     """
@@ -26,12 +26,12 @@ async def generate_response(request: QueryRequest):
         print(final_prompt)
         print("------------------------------------------")
 
-        llm_response = await llm_client.get_completion(final_prompt)
+        llm_response = await llm_client.get_completion(final_prompt) # type: ignore
 
         return {
             "response": llm_response,
             "prompt_used": final_prompt  # Retorna o prompt para fins de debug
-        }
+        } # type: ignore
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
